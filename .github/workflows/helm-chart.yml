@@ -1,0 +1,32 @@
+name: helm-chart
+
+on:
+  workflow_call:
+    inputs:
+      chart_path:
+        required: false
+        type: string
+        default: chart
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+
+      - name: Install kubeconform
+        run: |
+          curl -sSL https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz | tar xz -C /usr/local/bin kubeconform
+
+      - name: Lint and validate rendered Kubernetes manifests
+        run: |
+          helm dependency build ${{ inputs.chart_path }} || true
+          helm lint ${{ inputs.chart_path }} --strict
+          helm template diq-check ${{ inputs.chart_path }} | kubeconform -strict -ignore-missing-schemas
