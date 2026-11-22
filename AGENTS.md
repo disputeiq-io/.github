@@ -1,4 +1,4 @@
-# diq-org-github (disputeiq-platform/.github)
+# diq-org-github (disputeiq-io/.github)
 
 Organization-wide GitHub profile and reusable CI/CD workflow definitions (`workflow_call`)
 shared by all DisputeIQ repositories.

@@ -1,4 +1,4 @@
-# DisputeIQ Platform (`disputeiq-platform`)
+# DisputeIQ Platform (`disputeiq-io`)
 
 An AI-native, multi-tenant dispute and chargeback resolution platform for card issuers and acquirers.
 

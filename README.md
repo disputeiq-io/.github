@@ -1,4 +1,4 @@
-# disputeiq-platform/.github (`diq-org-github`)
+# disputeiq-io/.github (`diq-org-github`)
 
 Organization profile and reusable GitHub Actions workflows for DisputeIQ.
 
